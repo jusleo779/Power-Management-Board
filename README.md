@@ -67,7 +67,11 @@ flowchart LR
 
 ## PCB layout
 
-![PCB layout in Altium: top layer](images/pcb-layout-top-layer.png) | ![PCB layout in Altium: bottom layer](images/pcb-layout-bottom-layer.png)
+| Top (2D) | Bottom (3D) |
+|---|---|
+| ![PCB layout in Altium: top layer](images/pcb-layout-top-layer.png)| ![PCB layout in Altium: bottom layer](images/pcb-layout-bottom-layer.png)
+|
+ | 
 
 - **Layers:** GND pours on both layers, with thermal-relief connections for hand soldering with thermal-relief connections for easier hand soldering. A few display segment traces cross to the bottom layer through vias, so the pour is broken in the lower-left area under those traces.
 - **Trace widths:** 0.6 mm for a 10-net Power class (input, protected rail, both regulator outputs, the 5 V path and GND); 0.254 mm for signals.
