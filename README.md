@@ -51,25 +51,25 @@ flowchart LR
 
 **Voltage regulator (U2).** U2 is an LM317 in its standard adjustable circuit. A potentiometer on connector P3 sets the output voltage. C5 on the ADJ pin is a do-not-populate footprint, reserved for ripple reduction if testing calls for it.
 
-**5 V logic supply (U3).** A RECOM switching module converts V_PROT to 5 V for the Nano. L1, L2 and ceramic capacitors form an input filter that keeps switching noise off the input rail. D2 stops USB power from feeding back into U3 when the Nano is plugged into a computer.
+**5 V logic supply (U3).** A RECOM switching module converts V_PROT to 5 V for the Nano. L1, L2, and ceramic capacitors form an input filter that keeps switching noise off the input rail. D2 stops USB power from feeding back into U3 when the Nano is plugged into a computer.
 
-**Measurement and display.** R3 (43 kΩ) and R4 (10 kΩ) divide VOUT by 5.3, so a 22 V output reads as about 4.2 V on the Nano's A0 pin, inside its 0 to 5 V range. C11 filters the reading. The Nano multiplexes the display: R5 to R12 limit segment current, and Q1 to Q3 (2N3904) switch each digit's common pin through base resistors R13 to R15.
+**Measurement and display.** R3 (43 kΩ) and R4 (10 kΩ) divide VOUT by 5.3, so a 22 V output reads as about 4.2 V on the Nano's A0 pin, inside its 0 to 5 V range. C11 filters the reading. The Nano multiplexes the display: R5 to R12 limit the segment current, and Q1 to Q3 (2N3904) switch each digit's common pin through base resistors R13 to R15.
 
 ## Design decisions
 
 | Decision | Reason |
 |---|---|
-| 30 V input | Reaching 21 V at the output costs about 0.5 V in D1, 3.25 V in U1 and 2 V of U2 dropout. 30 V leaves a maximum near 22 V. |
+| 30 V input | Reaching 21 V at the output costs about 0.5 V in D1, 3.25 V in U1, and 2 V of U2 dropout. 30 V leaves a maximum near 22 V. |
 | 0.3 A current limit | A lower limit keeps the heatsinks small enough for the enclosure. |
 | Separate heatsink per LM317 | Worst case, U2 dissipates ~7.6 W (1.25 V out at 0.3 A) and U1 ~9 W into a shorted output. Each regulator bolts to an Ohmite RA-T2X-64E (3.1 °C/W) through an insulating pad. Each LM317 tab carries that regulator's output voltage, so the heatsinks must not touch. |
 | Switching module for 5 V | A 7805 running from 30 V would waste about 2.5 W at 100 mA. The R-78 module needs no heatsink. |
-| Hand assembly | Most parts are through-hole or 1206 size, and the Nano, display and heatsinks need hand soldering at any factory. |
+| Hand assembly | Most parts are through-hole or 1206 size, and the Nano, display, and heatsinks need hand soldering at any factory. |
 
 ## PCB layout
 
 ![PCB layout in Altium: top copper in red, bottom copper in black, GND pour in blue](images/pcb-layout.png)
 
-- **Layers:** signals and power on top, a GND pour on the bottom with thermal-relief connections for easier hand soldering. A few display segment traces cross to the bottom layer through vias, so the pour is broken in the lower-left area under those traces.
+- **Layers:** GND pours on both layers, with thermal-relief connections for hand soldering with thermal-relief connections for easier hand soldering. A few display segment traces cross to the bottom layer through vias, so the pour is broken in the lower-left area under those traces.
 - **Trace widths:** 0.6 mm for a 10-net Power class (input, protected rail, both regulator outputs, the 5 V path and GND); 0.254 mm for signals.
 - **Clearance:** 0.152 mm (6 mil), with margin above JLCPCB and PCBWay minimums.
 - **Placement:** power path and connectors along the back edge, display and knob connector toward the front, Nano USB port left clear for programming. Electrolytic capacitors sit 10 to 15 mm from the heatsinks, since each 10 °C of extra heat roughly halves their life.
@@ -89,8 +89,8 @@ flowchart LR
 ![3D side view showing heatsink height](pcb-3d-side.png)
 
 - **Regulators:** insert U1 and U2 without soldering, bolt each tab to its heatsink through the insulating pad, then solder the legs. The screw sets the height; the regulator body ends up 2 to 4 mm above the board.
-- **C1 polarity:** the silkscreen line marks the negative (GND) side, at the square pad. C6 uses a "+" mark instead. The board uses both conventions, so check each capacitor.
-- **Enclosure:** the heatsinks stand 63.5 mm tall. Print the box in PETG or ASA (PLA softens near 60 °C) and put vents above both heatsinks.
+- **C1 polarity:** The silkscreen line marks the negative (GND) side, at the square pad. C6 uses a "+" mark instead. The board uses both conventions, so check each capacitor.
+- **Enclosure:** The heatsinks stand 63.5 mm tall. Print the box in PETG or ASA (PLA softens near 60 °C) and put vents above both heatsinks.
 
 ## Roadmap
 
