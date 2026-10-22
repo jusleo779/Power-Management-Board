@@ -67,7 +67,7 @@ flowchart LR
 
 ## PCB layout
 
-| Top (2D) | Bottom (3D) |
+| Top Layer | Bottom Layer |
 |---|---|
 | ![PCB layout in Altium: top layer](pcb-layout-top-layer.png)| ![PCB layout in Altium: bottom layer](pcb-layout-bottom-layer.png)
 |
