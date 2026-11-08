@@ -113,7 +113,6 @@ flowchart LR
 | `Power Management Board.PrjPcb` | Altium project |
 | `PowerBoard.SchDoc` | Schematic |
 | `PowerBoard.PcbDoc` | PCB layout |
-| `images/` | Schematic, layout and 3D render screenshots used in this README |
 
 ## Author
 
