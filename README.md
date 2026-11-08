@@ -102,7 +102,7 @@ flowchart LR
 - [x] Schematic and validation
 - [x] Placement, routing, GND pour, clean DRC
 - [x] Gerber and drill export, bare board order
-- [] Hand assembly and bring-up testing
+- [ ] Hand assembly and bring-up testing
 - [ ] Nano firmware for the voltage display
 - [ ] 3D-printed enclosure
 
