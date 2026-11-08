@@ -101,8 +101,8 @@ flowchart LR
 - [x] Requirements and block design
 - [x] Schematic and validation
 - [x] Placement, routing, GND pour, clean DRC
-- [ ] Gerber and drill export, bare board order
-- [ ] Hand assembly and bring-up testing
+- [x] Gerber and drill export, bare board order
+- [] Hand assembly and bring-up testing
 - [ ] Nano firmware for the voltage display
 - [ ] 3D-printed enclosure
 
